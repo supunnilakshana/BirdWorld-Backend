@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BirdWorld.Migrations
 {
     [DbContext(typeof(IdentityAppDbContext))]
-    [Migration("20230212051052_init roles")]
-    partial class initroles
+    [Migration("20230212144327_init- remoteDb")]
+    partial class initremoteDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,10 @@ namespace BirdWorld.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -66,6 +70,9 @@ namespace BirdWorld.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ProfileUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -75,14 +82,6 @@ namespace BirdWorld.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("profileUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("userRole")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -127,20 +126,23 @@ namespace BirdWorld.Migrations
                         new
                         {
                             Id = "0",
-                            ConcurrencyStamp = "1d8a7c9d-055e-4a69-a50f-fc8ffa66bc3a",
-                            Name = "Admin"
+                            ConcurrencyStamp = "82a87244-68ff-41ad-90ed-3faa591796fa",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "9695ac28-84d7-4ce2-8064-d9c437a1bda5",
-                            Name = "GUser"
+                            ConcurrencyStamp = "623f8120-bce1-4326-8703-9b455da33e78",
+                            Name = "GUser",
+                            NormalizedName = "GUSER"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "427185d1-e41f-4b21-bc9a-8c11f85a6194",
-                            Name = "Seller"
+                            ConcurrencyStamp = "2055d4c8-3a04-4465-b0ad-8241bfe457d8",
+                            Name = "Seller",
+                            NormalizedName = "SELLER"
                         });
                 });
 

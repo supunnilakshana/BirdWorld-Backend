@@ -158,11 +158,6 @@ namespace BirdWorld.Controllers
 
             } 
 
-
-
-
-            return Ok();
-
         }
 
 
