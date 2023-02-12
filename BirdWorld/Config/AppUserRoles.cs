@@ -1,7 +1,7 @@
 ﻿namespace BirdWorld.Config
 {
 
-	enum UserRoles
+	enum AppUserRoles
 	{
 		Admin,
 		GUser,
