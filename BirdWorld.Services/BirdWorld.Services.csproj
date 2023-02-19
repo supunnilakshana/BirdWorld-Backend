@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BirdWorld.Config\BirdWorld.Config.csproj" />
+    <ProjectReference Include="..\BirdWorld.Data\BirdWorld.DataAcess.csproj" />
+    <ProjectReference Include="..\BirdWorld.Models\BirdWorld.Models.csproj" />
+  </ItemGroup>
+
+</Project>

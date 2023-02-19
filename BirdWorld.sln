@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdWorld", "BirdWorld\BirdWorld.csproj", "{06B2635E-5F7B-4310-93FE-9E95BEA44AA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdWorld", "BirdWorld\BirdWorld.csproj", "{06B2635E-5F7B-4310-93FE-9E95BEA44AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdWorld.Models", "BirdWorld.Models\BirdWorld.Models.csproj", "{FA05F0E9-180F-450C-8D5E-B8630DAF64AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdWorld.Services", "BirdWorld.Services\BirdWorld.Services.csproj", "{057411FC-01BA-4737-B014-6BB2213651A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdWorld.DataAcess", "BirdWorld.Data\BirdWorld.DataAcess.csproj", "{4C67FA1B-FB95-49A7-B26B-1FAC80E4822D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdWorld.Config", "BirdWorld.Config\BirdWorld.Config.csproj", "{A65E9B45-412A-480A-A844-57BAB26D276F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{06B2635E-5F7B-4310-93FE-9E95BEA44AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B2635E-5F7B-4310-93FE-9E95BEA44AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B2635E-5F7B-4310-93FE-9E95BEA44AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA05F0E9-180F-450C-8D5E-B8630DAF64AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA05F0E9-180F-450C-8D5E-B8630DAF64AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA05F0E9-180F-450C-8D5E-B8630DAF64AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA05F0E9-180F-450C-8D5E-B8630DAF64AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057411FC-01BA-4737-B014-6BB2213651A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057411FC-01BA-4737-B014-6BB2213651A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057411FC-01BA-4737-B014-6BB2213651A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057411FC-01BA-4737-B014-6BB2213651A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C67FA1B-FB95-49A7-B26B-1FAC80E4822D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C67FA1B-FB95-49A7-B26B-1FAC80E4822D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C67FA1B-FB95-49A7-B26B-1FAC80E4822D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C67FA1B-FB95-49A7-B26B-1FAC80E4822D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65E9B45-412A-480A-A844-57BAB26D276F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65E9B45-412A-480A-A844-57BAB26D276F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65E9B45-412A-480A-A844-57BAB26D276F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65E9B45-412A-480A-A844-57BAB26D276F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

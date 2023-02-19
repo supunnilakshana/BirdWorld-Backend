@@ -72,3 +72,13 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\BirdWorld.pdb
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\BirdWorld.genruntimeconfig.cache
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\ref\BirdWorld.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\AutoMapper.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.Config.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.DataAcess.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.Models.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.Services.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.Config.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.DataAcess.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.Models.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\BirdWorld.Services.pdb

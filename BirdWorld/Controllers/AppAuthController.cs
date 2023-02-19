@@ -1,12 +1,12 @@
-﻿using BirdWorld.Config;
+﻿using AutoMapper;
+using BirdWorld.Config;
 using BirdWorld.Helpers;
 using BirdWorld.Models;
 using BirdWorld.Models.RequestModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Win32.SafeHandles;
-using System.Data;
+
+
 
 namespace BirdWorld.Controllers
 {
@@ -18,17 +18,20 @@ namespace BirdWorld.Controllers
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
-        public AppAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        private readonly IMapper mapper;
+
+        public AppAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager,IMapper mapper)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
+            this.mapper = mapper;
         }
 
 
         [HttpPost]
         [Route("signin")]
-        public async Task<ActionResult> Signin(UserAuthRequest authRequest)
+        public async Task<ActionResult<UserAuthResponse>> Signin(UserAuthRequest authRequest)
         {
 
                if (authRequest == null)
@@ -49,10 +52,10 @@ namespace BirdWorld.Controllers
                         if (role is not null)
                         {
                             String acesstoken = new JwtHelper().createToken(user, role);
+                            var mappedUser=  mapper.Map<AppUserDto>(user);
                             return Ok(
-                                new
-                                {
-                                    user = user,
+                                new UserAuthResponse{
+                                    user = mappedUser,
                                     token = acesstoken
                                 }
                            );
@@ -124,9 +127,10 @@ namespace BirdWorld.Controllers
                             if (identityResult.Succeeded)
                             {
                                 String acesstoken = new JwtHelper().createToken(regiUser, role.Name);
+                                var mappedUser = mapper.Map<AppUserDto>(newuser);
                                 return Ok(
                                     new {
-                                   user=newuser,
+                                   user=mappedUser,
                                    token=acesstoken
                                 }
                                );
@@ -160,6 +164,9 @@ namespace BirdWorld.Controllers
 
         }
 
+
+
+       
 
 
     }

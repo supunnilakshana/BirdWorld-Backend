@@ -4,9 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.13" />
@@ -24,8 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\ResponseModels\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\BirdWorld.Config\BirdWorld.Config.csproj" />
+    <ProjectReference Include="..\BirdWorld.Data\BirdWorld.DataAcess.csproj" />
+    <ProjectReference Include="..\BirdWorld.Models\BirdWorld.Models.csproj" />
+    <ProjectReference Include="..\BirdWorld.Services\BirdWorld.Services.csproj" />
   </ItemGroup>
 
 </Project>

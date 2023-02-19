@@ -1,5 +1,5 @@
 using BirdWorld.Config;
-using BirdWorld.Data;
+using BirdWorld.DataAcess;
 using BirdWorld.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -47,15 +47,15 @@ builder.Services.AddAuthentication(auth =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtConfig.Secrete_Key))
     };
 });
-
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+     app.UseSwagger();
+     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
@@ -64,5 +64,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseSwagger();
 
+
+app.UseSwaggerUI(
+    c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
+    c.RoutePrefix = string.Empty;
+}
+);
 app.Run();
