@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rijDShr9nD06TL58Pqr9awJTn7wE1aCeQiFlMAw9YlwOpHm2JobBLAsaqMt/ygCe9K+SREaYyjpwEBJMgawPbw==",
+  "dgSpecHash": "nA/EPEs0yB65bc5zqyUouVoCPXIbVCg0lHCu/FEXpU2IlcnpXtPHFhR1c8DSWshJ+2ecDJCvcW4X9kJ/SNQvWg==",
   "success": true,
   "projectFilePath": "C:\\Supun\\Professional\\Development\\.net core\\BirdWorld\\BirdWorld\\BirdWorld.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\supun\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\supun\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\supun\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\supun\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\supun\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\supun\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.13\\microsoft.aspnetcore.authentication.jwtbearer.6.0.13.nupkg.sha512",
     "C:\\Users\\supun\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.13\\microsoft.aspnetcore.cryptography.internal.6.0.13.nupkg.sha512",

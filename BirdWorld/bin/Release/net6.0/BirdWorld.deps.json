@@ -8,8 +8,11 @@
     ".NETCoreApp,Version=v6.0": {
       "BirdWorld/1.0.0": {
         "dependencies": {
-          "AutoMapper": "11.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "BirdWorld.Config": "1.0.0",
+          "BirdWorld.DataAcess": "1.0.0",
+          "BirdWorld.Models": "1.0.0",
+          "BirdWorld.Services": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.13",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
@@ -17,33 +20,32 @@
           "Microsoft.EntityFrameworkCore.Design": "6.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.13",
-          "Models": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
           "BirdWorld.dll": {}
         }
       },
-      "AutoMapper/11.0.1": {
+      "AutoMapper/12.0.0": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.1/AutoMapper.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.1.0"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.0.0"
           }
         }
       },
-      "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
         "dependencies": {
-          "AutoMapper": "11.0.1",
+          "AutoMapper": "12.0.0",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.0.0"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.0.0"
           }
         }
       },
@@ -596,9 +598,40 @@
           }
         }
       },
-      "Models/1.0.0": {
+      "BirdWorld.Config/1.0.0": {
         "runtime": {
-          "Models.dll": {}
+          "BirdWorld.Config.dll": {}
+        }
+      },
+      "BirdWorld.DataAcess/1.0.0": {
+        "dependencies": {
+          "BirdWorld.Config": "1.0.0",
+          "BirdWorld.Models": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13",
+          "Microsoft.EntityFrameworkCore": "6.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.13"
+        },
+        "runtime": {
+          "BirdWorld.DataAcess.dll": {}
+        }
+      },
+      "BirdWorld.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.13"
+        },
+        "runtime": {
+          "BirdWorld.Models.dll": {}
+        }
+      },
+      "BirdWorld.Services/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "BirdWorld.Config": "1.0.0",
+          "BirdWorld.DataAcess": "1.0.0",
+          "BirdWorld.Models": "1.0.0"
+        },
+        "runtime": {
+          "BirdWorld.Services.dll": {}
         }
       }
     }
@@ -609,19 +642,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AutoMapper/11.0.1": {
+    "AutoMapper/12.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
-      "path": "automapper/11.0.1",
-      "hashPath": "automapper.11.0.1.nupkg.sha512"
+      "sha512": "sha512-0Rmg0zI5AFu1O/y//o9VGyhxKjhggWpk9mOA1tp0DEVx40c61bs+lnQv+0jUq8XbniF7FKgIVvI1perqiMtLrA==",
+      "path": "automapper/12.0.0",
+      "hashPath": "automapper.12.0.0.nupkg.sha512"
     },
-    "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0asw5WxdCFh2OTi9Gv+oKyH9SzxwYQSnO8TV5Dd0GggovILzJW4UimP26JAcxc3yB5NnC5urooZ1BBs8ElpiBw==",
-      "path": "automapper.extensions.microsoft.dependencyinjection/11.0.0",
-      "hashPath": "automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512"
+      "sha512": "sha512-XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.0",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",
@@ -1015,7 +1048,22 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
-    "Models/1.0.0": {
+    "BirdWorld.Config/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BirdWorld.DataAcess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BirdWorld.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BirdWorld.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

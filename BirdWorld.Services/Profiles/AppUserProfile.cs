@@ -1,19 +1,16 @@
 ﻿using AutoMapper;
 using BirdWorld.Models;
 
-namespace BirdWorld.Profiles
+
+namespace BirdWorld.Services.Profiles
 {
     public class AppUserProfile : Profile
     {
-
-        public AppUserProfile(String Role)
+        public AppUserProfile()
         {
             CreateMap<AppUser, AppUserDto>()
                 .ForMember(des => des.Name,
-                opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(des => des.Role,
-                opt => opt.MapFrom(Role));
+                opt => opt.MapFrom(src => src.DisplayName));
         }
-
     }
 }

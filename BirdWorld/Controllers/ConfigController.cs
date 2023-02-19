@@ -51,7 +51,7 @@ namespace BirdWorld.Controllers
                         if (identityResult.Succeeded)
                         {
                             String acesstoken = new JwtHelper().createToken(regiUser, role.Name);
-                            return Ok("configuration successfull" );
+                            return Ok("configuration successfull");
                         }
                         else
                         {

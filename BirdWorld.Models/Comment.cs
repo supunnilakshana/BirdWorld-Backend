@@ -9,16 +9,17 @@ namespace BirdWorld.Models
 {
     public class Comment
     {
-        [Key]
+       // [Key]
         public int Id { get; set; }
         public string Context { get; set; }
-
+       
+        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime Updated { get; set; } = DateTime.Now;
+        public int PostID { get; set; }
+        public Post Post { get; set; }
         public string UserId { get; set; }
         public AppUser User { get; set; }
-        public string PostID { get; set; }
-        public Post post { get; set; }
-        public DateTime Created { get; set; }= DateTime.Now;
-        public DateTime Updated { get; set; }=   DateTime.Now;
+
 
 
 

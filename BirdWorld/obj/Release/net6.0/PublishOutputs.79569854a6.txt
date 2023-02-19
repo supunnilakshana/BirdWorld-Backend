@@ -1,9 +1,12 @@
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.exe
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\libman.json
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.runtimeconfig.json
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\AutoMapper.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -48,4 +51,12 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.Config.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.DataAcess.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.Models.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.Services.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.Config.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.DataAcess.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.Models.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.Services.pdb
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\BirdWorld.deps.json

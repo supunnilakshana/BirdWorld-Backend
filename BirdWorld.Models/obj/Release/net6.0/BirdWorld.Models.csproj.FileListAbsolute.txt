@@ -1,0 +1,12 @@
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\bin\Release\net6.0\BirdWorld.Models.deps.json
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\bin\Release\net6.0\BirdWorld.Models.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\bin\Release\net6.0\BirdWorld.Models.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.csproj.AssemblyReference.cache
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.AssemblyInfoInputs.cache
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.AssemblyInfo.cs
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.csproj.CoreCompileInputs.cache
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\refint\BirdWorld.Models.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\BirdWorld.Models.pdb
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld.Models\obj\Release\net6.0\ref\BirdWorld.Models.dll

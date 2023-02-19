@@ -1,6 +1,7 @@
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\BirdWorld.exe
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\appsettings.json
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\libman.json
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\BirdWorld.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\BirdWorld.runtimeconfig.json
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\PubTmp\Out\BirdWorld.pdb

@@ -49,7 +49,7 @@ namespace BirdWorld.Controllers
                         var roles = await userManager.GetRolesAsync(user);
                         var role = roles.First();
                         Console.WriteLine(role);
-                        if (role is not null)
+                         if (role is not null)
                         {
                             String acesstoken = new JwtHelper().createToken(user, role);
                             var mappedUser=  mapper.Map<AppUserDto>(user);
