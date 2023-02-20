@@ -53,6 +53,7 @@ namespace BirdWorld.Controllers
                         {
                             String acesstoken = new JwtHelper().createToken(user, role);
                             var mappedUser=  mapper.Map<AppUserDto>(user);
+                            mappedUser.Role= role;
                             return Ok(
                                 new UserAuthResponse{
                                     user = mappedUser,
@@ -128,6 +129,7 @@ namespace BirdWorld.Controllers
                             {
                                 String acesstoken = new JwtHelper().createToken(regiUser, role.Name);
                                 var mappedUser = mapper.Map<AppUserDto>(newuser);
+                                mappedUser.Role = role.Name;
                                 return Ok(
                                     new {
                                    user=mappedUser,
