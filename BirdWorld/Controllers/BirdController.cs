@@ -9,7 +9,7 @@ namespace BirdWorld.Controllers
     public class BirdController : ControllerBase
     {
         [HttpGet]
-        [Route("Get")]
+        [Route("Get/{id?}")]
         public ActionResult<Bird> Get(int id)
         {
             return Ok();

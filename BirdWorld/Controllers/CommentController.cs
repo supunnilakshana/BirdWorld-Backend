@@ -10,7 +10,7 @@ namespace BirdWorld.Controllers
     {
 
         [HttpGet]
-        [Route("Get")]
+        [Route("Get/{id?}")]
         public ActionResult<Comment> Get(int id)
         {
             return Ok();
