@@ -18,27 +18,69 @@ namespace BirdWorld.Services.AppServices.PostService
 
         public bool CreatePost(Post post)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbContext.Add(post);
+                dbContext.SaveChanges();
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         public bool DeletePost(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbContext.Remove(new Post { Id=id});
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public List<Post> GetAllPosts()
+        public List<Post>? GetAllPosts()
         {
-            throw new NotImplementedException();
+            try
+            {
+               var list= dbContext.Posts.ToList();
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public Post? GetPost(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var post = dbContext.Posts.FirstOrDefault(p => p.Id.Equals(id));
+                return post;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public bool UpdatePost(Post post)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbContext.Posts.Update(post);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

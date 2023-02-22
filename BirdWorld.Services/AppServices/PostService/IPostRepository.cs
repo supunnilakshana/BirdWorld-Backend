@@ -8,7 +8,7 @@ namespace BirdWorld.Services.AppServices.PostService
 {
     public interface IPostRepository
     {
-        public List<Post> GetAllPosts();
+        public List<Post>? GetAllPosts();
 
         public Post? GetPost(int id);
 
