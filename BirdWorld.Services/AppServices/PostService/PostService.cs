@@ -12,8 +12,8 @@ namespace BirdWorld.Services.AppServices.PostService
     {
         private readonly AppDbContext dbContext;
 
-        public PostService(AppDbContext dbContext) {
-            this.dbContext = dbContext;
+        public PostService() {
+            this.dbContext = new AppDbContext();
         }
 
         public bool CreatePost(Post post)

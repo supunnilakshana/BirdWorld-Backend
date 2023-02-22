@@ -12,9 +12,9 @@ namespace BirdWorld.Services.AppServices.CommentService
     {
         private readonly AppDbContext dbContext;
 
-        public CommentService(AppDbContext dbContext)
+        public CommentService()
         {
-            this.dbContext = dbContext;
+            this.dbContext = new AppDbContext();
         }
 
         public bool CreatComment(Comment post)

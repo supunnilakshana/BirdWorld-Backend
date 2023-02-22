@@ -1,4 +1,5 @@
 ﻿using BirdWorld.Models;
+using BirdWorld.Services.AppServices.PostService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,16 @@ namespace BirdWorld.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
+       private readonly PostService postService;
+
+        public PostController()
+        {
+            postService=new PostService();
+
+
+        }
+
+
 
         [HttpGet]
         [Route("Get/{id?}")]
@@ -27,15 +38,44 @@ namespace BirdWorld.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public IActionResult Create()
+        public ActionResult Create(Post post)
         {
-            return Ok();
+            try
+            {
+                var dPost = new Post
+                {
+                    Id = post.Id,
+                    Description = post.Description,
+                    ImageUrl = post.ImageUrl,
+                    Title = post.Title,
+                    UserId = post.UserId,
+
+                };
+             var res=  postService.CreatePost(dPost);
+                if(res)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest();
+            }
+
+          
         }
 
 
         [HttpPut]
         [Route("Update")]
-        public IActionResult Update()
+        public ActionResult Update()
         {
             return Ok();
         }
@@ -43,7 +83,7 @@ namespace BirdWorld.Controllers
 
         [HttpDelete]
         [Route("Delete")]
-        public IActionResult Delete()
+        public  ActionResult Delete()
         {
             return Ok();
         }
