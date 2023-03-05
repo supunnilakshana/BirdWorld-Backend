@@ -109,7 +109,8 @@ namespace BirdWorld.Controllers
                     {
                         UserName = newUserRequest.Email,
                         Email = newUserRequest.Email,
-                        DisplayName = newUserRequest.Name
+                        FirstName = newUserRequest.FirstName,
+                        LastName = newUserRequest.LastName
                         
                     };
 

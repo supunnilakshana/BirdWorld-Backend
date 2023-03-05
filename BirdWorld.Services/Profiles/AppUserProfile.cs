@@ -8,9 +8,9 @@ namespace BirdWorld.Services.Profiles
     {
         public AppUserProfile()
         {
-            CreateMap<AppUser, AppUserDto>()
-                .ForMember(des => des.Name,
-                opt => opt.MapFrom(src => src.DisplayName));
+            CreateMap<AppUser, AppUserDto>();
+               /* .ForMember(des => des.Name,
+                opt => opt.MapFrom(src => src.DisplayName));*/
         }
     }
 }

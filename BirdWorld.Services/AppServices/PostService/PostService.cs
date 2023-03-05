@@ -20,16 +20,7 @@ namespace BirdWorld.Services.AppServices.PostService
         {
             try
             {
-                dbContext.Add(new Post
-                {
-                  
-                    Title = "ff",
-                    Description = "D",
-                    ImageUrl = "fg",
-                    UserId = "c7dd42cc-bb31-403a-86b5-660693b25650"
-
-
-                }) ;
+                dbContext.Add(post) ;
                 ;
                 dbContext.SaveChanges();
                 return true;
@@ -50,6 +41,7 @@ namespace BirdWorld.Services.AppServices.PostService
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.InnerException);
                 return false;
             }
         }
@@ -64,6 +56,7 @@ namespace BirdWorld.Services.AppServices.PostService
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.InnerException);
                 return null;
             }
         }
@@ -77,6 +70,7 @@ namespace BirdWorld.Services.AppServices.PostService
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.InnerException);
                 return null;
             }
         }
@@ -90,6 +84,7 @@ namespace BirdWorld.Services.AppServices.PostService
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.InnerException);
                 return false;
             }
         }

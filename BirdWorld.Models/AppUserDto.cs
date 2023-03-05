@@ -10,7 +10,8 @@ namespace BirdWorld.Models
     {
         public String Id { get; set; }
 
-        public string Name { get; set; }
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
         public string Email { get; set; }
         public string? Role { get; set; }
 

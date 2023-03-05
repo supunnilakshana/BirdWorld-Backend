@@ -12,8 +12,8 @@ namespace BirdWorld.Services.AppServices.AppUserService
     {
         private readonly AppDbContext context;
 
-        public AppUserService(AppDbContext context){
-            this.context = context;
+        public AppUserService(){
+            this.context =new AppDbContext();
 
             
         }

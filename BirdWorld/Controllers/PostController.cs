@@ -11,11 +11,11 @@ namespace BirdWorld.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-       private readonly PostService postService;
+       private readonly IPostRepository _postService;
 
-        public PostController()
+        public PostController(IPostRepository  postRepository)
         {
-            postService=new PostService();
+            _postService = postRepository;
 
 
         }
@@ -29,7 +29,7 @@ namespace BirdWorld.Controllers
             try
             {
 
-                var res = postService.GetPost(id);
+                var res = _postService.GetPost(id);
                 if (res!=null)
                 {
                     return Ok(res);
@@ -56,7 +56,7 @@ namespace BirdWorld.Controllers
             try
             {
 
-                var res = postService.GetAllPosts();
+                var res = _postService.GetAllPosts();
                 if (res != null)
                 {
                     return Ok( res );
@@ -90,7 +90,7 @@ namespace BirdWorld.Controllers
                     UserId = post.UserId,
 
                 };
-             var res=  postService.CreatePost(dPost);
+             var res=  _postService.CreatePost(dPost);
                 if(res)
                 {
                     return Ok();
@@ -120,7 +120,7 @@ namespace BirdWorld.Controllers
             try
             {
                
-                var res = postService.UpdatePost(post);
+                var res = _postService.UpdatePost(post);
                 if (res)
                 {
                     return Ok();
@@ -149,7 +149,7 @@ namespace BirdWorld.Controllers
             try
             {
 
-                var res = postService.DeletePost(id);
+                var res = _postService.DeletePost(id);
                 if (res)
                 {
                     return Ok();
