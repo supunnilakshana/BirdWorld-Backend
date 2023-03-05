@@ -3,6 +3,7 @@ using BirdWorld.Config;
 using BirdWorld.Helpers;
 using BirdWorld.Models;
 using BirdWorld.Models.RequestModels;
+using BirdWorld.Models.ResponseModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿using BirdWorld.Data;
+﻿using BirdWorld.DataAcess;
 using BirdWorld.Models;
 using System;
 using System.Collections.Generic;
@@ -20,11 +20,22 @@ namespace BirdWorld.Services.AppServices.PostService
         {
             try
             {
-                dbContext.Add(post);
+                dbContext.Add(new Post
+                {
+                  
+                    Title = "ff",
+                    Description = "D",
+                    ImageUrl = "fg",
+                    UserId = "c7dd42cc-bb31-403a-86b5-660693b25650"
+
+
+                }) ;
+                ;
                 dbContext.SaveChanges();
                 return true;
             }catch(Exception ex)
             {
+                Console.WriteLine(ex.InnerException);
                 return false;
             }
         }

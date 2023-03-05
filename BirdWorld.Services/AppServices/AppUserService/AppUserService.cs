@@ -10,9 +10,9 @@ namespace BirdWorld.Services.AppServices.AppUserService
 {
     public class AppUserService:IAppUserRepository
     {
-        private readonly IdentityAppDbContext context;
+        private readonly AppDbContext context;
 
-        public AppUserService(IdentityAppDbContext context){
+        public AppUserService(AppDbContext context){
             this.context = context;
 
             

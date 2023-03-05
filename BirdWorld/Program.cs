@@ -2,6 +2,9 @@ using AutoMapper;
 using BirdWorld.Config;
 using BirdWorld.DataAcess;
 using BirdWorld.Models;
+using BirdWorld.Services.AppServices.AppUserService;
+using BirdWorld.Services.AppServices.CommentService;
+using BirdWorld.Services.AppServices.PostService;
 using BirdWorld.Services.Profiles;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -21,7 +24,7 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddDbContext<IdentityAppDbContext>();
+        builder.Services.AddDbContext<AppDbContext>();
         builder.Services.AddIdentity<AppUser, IdentityRole>(
             options =>
             {
@@ -33,7 +36,7 @@ internal class Program
                 options.Password.RequireUppercase = false;
 
             })
-            .AddEntityFrameworkStores<IdentityAppDbContext>();
+            .AddEntityFrameworkStores<AppDbContext>();
 
 
         builder.Services.AddAuthentication(auth =>
@@ -62,9 +65,11 @@ internal class Program
 
         IMapper mapper = mappingConfig.CreateMapper();
         builder.Services.AddSingleton(mapper);
+        builder.Services.AddScoped<IPostRepository,PostService>();
+        builder.Services.AddScoped<IAppUserRepository, AppUserService>();
+        builder.Services.AddScoped<ICommentRepository, CommentService>();
 
 
-        
 
         var app = builder.Build();
 

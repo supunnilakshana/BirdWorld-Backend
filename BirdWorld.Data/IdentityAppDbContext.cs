@@ -1,13 +1,16 @@
-﻿using BirdWorld.Config;
+﻿/*using BirdWorld.Config;
 using BirdWorld.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace BirdWorld.DataAcess
 {
     public class IdentityAppDbContext : IdentityDbContext<AppUser>
     {
+
+        public DbSet<Post> Posts { get; set; }
         public IdentityAppDbContext(DbContextOptions<IdentityAppDbContext> options) : base(options)
         {
 
@@ -34,7 +37,7 @@ namespace BirdWorld.DataAcess
                 {
                     Id = ((int)AppUserRoles.Admin).ToString(),
                     Name = AppUserRoles.Admin.ToString(),
-                    NormalizedName= AppUserRoles.Admin.ToString().ToUpper(),
+                    NormalizedName = AppUserRoles.Admin.ToString().ToUpper(),
                 },
                 new IdentityRole
                 {
@@ -48,10 +51,17 @@ namespace BirdWorld.DataAcess
                    Name = AppUserRoles.Seller.ToString(),
                    NormalizedName = AppUserRoles.Seller.ToString().ToUpper()
                }
-          );
+            );
+
+          
+           builder.Entity<Post>()
+           .HasOne(p => p.User)
+           .WithMany()
+           .HasForeignKey(p => p.UserId);
 
         }
 
 
     }
 }
+*/

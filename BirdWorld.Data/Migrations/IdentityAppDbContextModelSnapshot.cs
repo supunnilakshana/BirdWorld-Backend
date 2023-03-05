@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BirdWorld.DataAcess.Migrations.IdentityAppDb
+namespace BirdWorld.DataAcess.Migrations
 {
-    [DbContext(typeof(IdentityAppDbContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class IdentityAppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -94,6 +94,43 @@ namespace BirdWorld.DataAcess.Migrations.IdentityAppDb
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("BirdWorld.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -124,21 +161,21 @@ namespace BirdWorld.DataAcess.Migrations.IdentityAppDb
                         new
                         {
                             Id = "0",
-                            ConcurrencyStamp = "717436ed-087f-4038-ac30-db6883cffb5c",
+                            ConcurrencyStamp = "f6ab8a14-7668-46ec-a803-fa2380479d58",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "7967dee9-00e7-48a1-8e05-306a921ef22a",
+                            ConcurrencyStamp = "dc45d4e0-8970-4366-a13c-a58d99fba534",
                             Name = "GUser",
                             NormalizedName = "GUSER"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "47ca5749-f5a5-48c0-9ccf-3a8f637e22dd",
+                            ConcurrencyStamp = "a44bf3d5-acfc-4515-a6e0-2c4935d607e0",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         });
@@ -248,6 +285,17 @@ namespace BirdWorld.DataAcess.Migrations.IdentityAppDb
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BirdWorld.Models.Post", b =>
+                {
+                    b.HasOne("BirdWorld.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

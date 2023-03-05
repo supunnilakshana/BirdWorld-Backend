@@ -9,6 +9,8 @@ namespace BirdWorld.Models
         public String  DisplayName{ get; set; }
         public String? ProfileUrl { get; set; }
 
+       
+
 
     }
 }

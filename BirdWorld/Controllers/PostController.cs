@@ -1,7 +1,9 @@
 ﻿using BirdWorld.Models;
+using BirdWorld.Models.RequestModels;
 using BirdWorld.Services.AppServices.PostService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace BirdWorld.Controllers
 {
@@ -24,7 +26,26 @@ namespace BirdWorld.Controllers
         [Route("Get/{id?}")]
         public  ActionResult<Post> Get(int id)
         {
-            return Ok();
+            try
+            {
+
+                var res = postService.GetPost(id);
+                if (res!=null)
+                {
+                    return Ok(res);
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest();
+            }
         }
 
 
@@ -32,19 +53,37 @@ namespace BirdWorld.Controllers
         [Route("Get")]
         public ActionResult<ICollection<Post>> Get()
         {
-            return Ok();
+            try
+            {
+
+                var res = postService.GetAllPosts();
+                if (res != null)
+                {
+                    return Ok( res );
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest();
+            }
         }
 
 
         [HttpPost]
         [Route("Create")]
-        public ActionResult Create(Post post)
+        public ActionResult Create(PostRequest post)
         {
             try
             {
                 var dPost = new Post
-                {
-                    Id = post.Id,
+                { 
                     Description = post.Description,
                     ImageUrl = post.ImageUrl,
                     Title = post.Title,
@@ -65,7 +104,8 @@ namespace BirdWorld.Controllers
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
+                
                 return BadRequest();
             }
 
@@ -75,17 +115,57 @@ namespace BirdWorld.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public ActionResult Update()
+        public ActionResult Update(Post post)
         {
-            return Ok();
+            try
+            {
+               
+                var res = postService.UpdatePost(post);
+                if (res)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest();
+            }
+
+           
         }
 
 
         [HttpDelete]
-        [Route("Delete")]
-        public  ActionResult Delete()
+        [Route("Delete/{id?}")]
+        public  ActionResult Delete(int id)
         {
-            return Ok();
+            try
+            {
+
+                var res = postService.DeletePost(id);
+                if (res)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest();
+            }
         }
 
     }
