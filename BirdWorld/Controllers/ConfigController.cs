@@ -32,7 +32,8 @@ namespace BirdWorld.Controllers
                 {
                     UserName = "bwadmin@gmail.com",
                     Email = "bwadmin@gmail.com",
-                    DisplayName = "Bird Word Admin"
+                    FirstName = "Bird Word Admin",
+                    LastName = "2 "
                 };
 
 

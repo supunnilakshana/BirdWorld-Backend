@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BirdWorld.DataAcess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class IdentityAppDbContextModelSnapshot : ModelSnapshot
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -34,16 +34,20 @@ namespace BirdWorld.DataAcess.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DisplayName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -92,6 +96,40 @@ namespace BirdWorld.DataAcess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("BirdWorld.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Context")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PostID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("BirdWorld.Models.Post", b =>
@@ -161,21 +199,21 @@ namespace BirdWorld.DataAcess.Migrations
                         new
                         {
                             Id = "0",
-                            ConcurrencyStamp = "f6ab8a14-7668-46ec-a803-fa2380479d58",
+                            ConcurrencyStamp = "230f41d7-0acf-43b9-bfba-34bc5a3a9a53",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "dc45d4e0-8970-4366-a13c-a58d99fba534",
+                            ConcurrencyStamp = "44df43c0-93ae-47d9-a388-58fab7e1bace",
                             Name = "GUser",
                             NormalizedName = "GUSER"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "a44bf3d5-acfc-4515-a6e0-2c4935d607e0",
+                            ConcurrencyStamp = "b0c0e555-4f94-4674-a694-d723a121a57f",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         });
@@ -287,6 +325,24 @@ namespace BirdWorld.DataAcess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BirdWorld.Models.Comment", b =>
+                {
+                    b.HasOne("BirdWorld.Models.Post", "Post")
+                        .WithMany("Comments")
+                        .HasForeignKey("PostID")
+                        .IsRequired();
+
+                    b.HasOne("BirdWorld.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BirdWorld.Models.Post", b =>
                 {
                     b.HasOne("BirdWorld.Models.AppUser", "User")
@@ -347,6 +403,11 @@ namespace BirdWorld.DataAcess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BirdWorld.Models.Post", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

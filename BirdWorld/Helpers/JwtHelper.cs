@@ -13,7 +13,7 @@ namespace BirdWorld.Helpers
         {
 
             var claims = new[] {
-                new Claim("FullName",appUser.DisplayName),
+                new Claim("FullName",appUser.FirstName+appUser.LastName),
                 new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.NameId,appUser.UserName),
                 new Claim(ClaimTypes.Role,role),
                 };
