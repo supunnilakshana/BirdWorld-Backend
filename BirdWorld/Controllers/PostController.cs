@@ -1,30 +1,35 @@
-﻿using BirdWorld.Models;
+﻿using AutoMapper;
+using BirdWorld.Config;
+using BirdWorld.Helpers;
+using BirdWorld.Models;
 using BirdWorld.Models.RequestModels;
 using BirdWorld.Services.AppServices.PostService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 
 namespace BirdWorld.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize(Roles = "GUser")]
+    [Route("api/post")]
     [ApiController]
     public class PostController : ControllerBase
     {
        private readonly IPostRepository _postService;
+        private readonly IMapper _mapper;
 
-        public PostController(IPostRepository  postRepository)
+        public PostController(IPostRepository  postRepository, IMapper mapper)
         {
             _postService = postRepository;
-
-
+            _mapper = mapper;
         }
 
-
+       
 
         [HttpGet]
         [Route("Get/{id?}")]
-        public  ActionResult<Post> Get(int id)
+        public  ActionResult<PostDto > Get(int id)
         {
             try
             {
@@ -32,7 +37,7 @@ namespace BirdWorld.Controllers
                 var res = _postService.GetPost(id);
                 if (res!=null)
                 {
-                    return Ok(res);
+                    return Ok(_mapper.Map<PostDto>(res));
                 }
                 else
                 {
@@ -44,14 +49,43 @@ namespace BirdWorld.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("GetUsers/{id?}")]
+        public ActionResult<Post> GetuserPost(String id)
+        {
+            try
+            {
+
+                var res = _postService.GetAllPostsByUid(id);
+
+                if (res != null)
+                {
+                    var mappedList = _mapper.Map<ICollection<PostDto>>(res);
+                    return Ok(mappedList);
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
             }
         }
 
 
         [HttpGet]
         [Route("Get")]
-        public ActionResult<ICollection<Post>> Get()
+        public ActionResult<ICollection<PostDto>> Get()
         {
             try
             {
@@ -59,7 +93,8 @@ namespace BirdWorld.Controllers
                 var res = _postService.GetAllPosts();
                 if (res != null)
                 {
-                    return Ok( res );
+                    var mappedList=_mapper.Map<ICollection<PostDto>>(res);
+                    return Ok(mappedList);
                 }
                 else
                 {
@@ -71,7 +106,7 @@ namespace BirdWorld.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -106,7 +141,7 @@ namespace BirdWorld.Controllers
             {
                 Console.WriteLine(ex.Message);
                 
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
 
           
@@ -115,27 +150,44 @@ namespace BirdWorld.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public ActionResult Update(Post post)
+        public ActionResult Update(PostRequest post)
         {
             try
             {
                
-                var res = _postService.UpdatePost(post);
-                if (res)
+                if (post.Id is not null)
                 {
-                    return Ok();
+
+                  Console.WriteLine(post.Id.ToString());
+
+                   var dPost = new Post
+                    {
+                        Id = post.Id.Value,
+                        Title = post.Title,
+                        Description= post.Description,
+                        UserId = post.UserId,
+                    };
+                    var res = _postService.UpdatePost(dPost);
+                    Console.WriteLine(res);
+                    if (res)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
                 }
                 else
                 {
                     return BadRequest();
                 }
 
-
             }
             catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
 
            
@@ -164,7 +216,7 @@ namespace BirdWorld.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 

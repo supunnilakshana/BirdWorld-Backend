@@ -11,6 +11,6 @@ namespace BirdWorld.Services.AppServices.AppUserService
     {
         public List<AppUser> GetallAppUsers();
     
-        public AppUser? GetAppUser(int id);
+        public AppUser? GetAppUser(String id);
     }
 }

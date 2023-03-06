@@ -10,8 +10,20 @@
 	}
 
 
+    public class AppUserRolesConst
+    {
 
-	
+        public const string Admin = " Admin";
+
+        public const String GUser = "GUser";
+        public const String Seller = "Seller";
+
+        
+        
+
+    }
+
+
 
 
 }

@@ -20,8 +20,7 @@ namespace BirdWorld.Services.AppServices.PostService
         {
             try
             {
-                dbContext.Add(post) ;
-                ;
+                dbContext.Add(post);
                 dbContext.SaveChanges();
                 return true;
             }catch(Exception ex)
@@ -61,6 +60,22 @@ namespace BirdWorld.Services.AppServices.PostService
             }
         }
 
+
+        public List<Post>? GetAllPostsByUid(String id)
+        {
+            try
+            {
+                var list = dbContext.Posts.Where(a=>a.UserId.Equals(id.Trim())).ToList();
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return null;
+            }
+        }
+
         public Post? GetPost(int id)
         {
             try
@@ -79,7 +94,9 @@ namespace BirdWorld.Services.AppServices.PostService
         {
             try
             {
-                dbContext.Posts.Update(post);
+              var res=  dbContext.Posts.Update(post);
+                Console.WriteLine(res);
+                dbContext.SaveChanges();
                 return true;
             }
             catch (Exception ex)

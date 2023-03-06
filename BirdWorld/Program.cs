@@ -61,6 +61,7 @@ internal class Program
         var mappingConfig = new MapperConfiguration(mc =>
         {
             mc.AddProfile(new AppUserProfile());
+            mc.AddProfile(new PostProfile());
         });
 
         IMapper mapper = mappingConfig.CreateMapper();

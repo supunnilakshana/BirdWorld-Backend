@@ -25,7 +25,7 @@ namespace BirdWorld.Services.AppServices.AppUserService
             return users;   
         }
 
-        public AppUser? GetAppUser(int id)
+        public AppUser? GetAppUser(String id)
         {
             var user = context.Users.FirstOrDefault(u=>u.Id.Equals(id));
 
