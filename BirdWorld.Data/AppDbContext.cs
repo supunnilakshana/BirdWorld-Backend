@@ -62,7 +62,12 @@ namespace BirdWorld.DataAcess
             .HasOne(p => p.User)
             .WithMany()
             .HasForeignKey(p => p.UserId);
-            
+
+            builder.Entity<Comment>()
+           .HasOne(p => p.User)
+           .WithMany()
+           .HasForeignKey(p => p.UserId);
+
             builder.Entity<Comment>()
            .HasOne(c => c.Post)
            .WithMany(p => p.Comments)

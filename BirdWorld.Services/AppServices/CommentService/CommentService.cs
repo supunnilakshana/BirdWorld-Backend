@@ -18,29 +18,95 @@ namespace BirdWorld.Services.AppServices.CommentService
             this.dbContext = new AppDbContext();
         }
 
-        public bool CreatComment(Comment post)
+        public bool CreatComment(Comment comment)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbContext.Comments.Add(comment);
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return false;
+            }
         }
 
         public bool DeleteComment(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbContext.Remove(new Comment { Id = id });
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return false;
+            }
         }
 
-        public List<Comment> GetAllComments()
+        public List<Comment>? GetAllComments()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var list = dbContext.Comments.ToList();
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return null;
+            }
         }
 
         public Comment? GetComment(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var comment = dbContext.Comments.FirstOrDefault(c => c.Id.Equals(id));
+                return comment;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return null;
+            }
+        }
+
+        public List<Comment>? GetPostComments(int id)
+        {
+            try
+            {
+                var list = dbContext.Comments.Where(c=> c.PostID==id).ToList();
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return null;
+            }
         }
 
         public bool UpdateComment(Comment comment)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = dbContext.Comments
+                    .Update(comment);
+                Console.WriteLine(res);
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return false;
+            }
         }
     }
 }

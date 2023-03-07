@@ -62,6 +62,7 @@ internal class Program
         {
             mc.AddProfile(new AppUserProfile());
             mc.AddProfile(new PostProfile());
+            mc.AddProfile(new CommentProfile());
         });
 
         IMapper mapper = mappingConfig.CreateMapper();

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace BirdWorld.Controllers
 {
-    [Authorize(Roles = "GUser")]
+    [Authorize(Roles =AccessHelper.anyoneAccess)]
     [Route("api/post")]
     [ApiController]
     public class PostController : ControllerBase
@@ -166,6 +166,7 @@ namespace BirdWorld.Controllers
                         Title = post.Title,
                         Description= post.Description,
                         UserId = post.UserId,
+                        Updated=DateTime.Now,
                     };
                     var res = _postService.UpdatePost(dPost);
                     Console.WriteLine(res);
