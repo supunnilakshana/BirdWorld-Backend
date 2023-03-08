@@ -19,6 +19,8 @@ namespace BirdWorld.Models
         public string UserId { get; set; }
         public AppUserDto User { get; set; }
 
+        
+
 
 
 

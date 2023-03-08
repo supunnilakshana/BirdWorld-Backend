@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace BirdWorld.Controllers
 {
-    [Authorize(Roles =AccessHelper.anyoneAccess)]
+  //  [Authorize(Roles =AccessHelper.anyoneAccess)]
     [Route("api/post")]
     [ApiController]
     public class PostController : ControllerBase

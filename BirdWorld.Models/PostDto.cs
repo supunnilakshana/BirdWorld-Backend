@@ -17,6 +17,6 @@ namespace BirdWorld.Models
         public DateTime Updated { get; set; } = DateTime.Now;
 
         public AppUserDto? User { get; set; }
-        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+        public ICollection<CommentDto> Comments { get; set; } = new List<CommentDto>();
     }
 }
