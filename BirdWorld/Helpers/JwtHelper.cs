@@ -14,7 +14,8 @@ namespace BirdWorld.Helpers
 
             var claims = new[] {
                 new Claim("FullName",appUser.FirstName+appUser.LastName),
-                new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.NameId,appUser.UserName),
+                new Claim(JwtRegisteredClaimNames.NameId,appUser.Id),
+                new Claim(Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames.UniqueName,appUser.UserName),
                 new Claim(ClaimTypes.Role,role),
                 };
 
@@ -29,7 +30,7 @@ namespace BirdWorld.Helpers
                   JwtConfig.Audience,
                   claims: claims,
                   notBefore: DateTime.Now,
-                  expires: DateTime.Now.AddDays(10),
+                  expires: DateTime.Now.AddDays(20),
                   signinCredential
 
                 );

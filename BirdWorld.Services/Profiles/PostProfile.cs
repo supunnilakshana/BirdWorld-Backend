@@ -2,6 +2,7 @@
 using BirdWorld.Models;
 using BirdWorld.Services.AppServices.AppUserService;
 using BirdWorld.Services.AppServices.CommentService;
+using BirdWorld.Services.AppServices.PostService;
 using System.Collections.Generic;
 
 namespace BirdWorld.Services.Profiles
@@ -17,6 +18,7 @@ namespace BirdWorld.Services.Profiles
             {
                 cfg.AddProfile<AppUserProfile>();
                 cfg.AddProfile<CommentProfile>();
+                cfg.AddProfile<PostLikeProfile>();
 
             }    );
             mapper = configuration.CreateMapper();
@@ -26,6 +28,10 @@ namespace BirdWorld.Services.Profiles
              opt => opt.MapFrom(src => setUser(src.UserId)))
                .ForMember(des => des.Comments,
              opt => opt.MapFrom(src => setCommnet(src.Id)));
+
+            CreateMap<PostLike, PostLikeDto>();
+
+
         }
 
         private AppUserDto? setUser(String userID)
@@ -52,5 +58,24 @@ namespace BirdWorld.Services.Profiles
            
           
         }
+
+        private List<PostLikeDto> setLikes(int postID)
+        {
+            var postService = new PostService();
+            var list = postService.GetPostLikes(postID);
+            if (list == null)
+            {
+                return new List<PostLikeDto>();
+            }
+            else
+            {
+
+                var mappedlist = mapper.Map<ICollection<PostLikeDto>>(list).ToList() ?? new List<PostLikeDto>();
+                return mappedlist;
+            }
+
+
+        }
+
     }
 }

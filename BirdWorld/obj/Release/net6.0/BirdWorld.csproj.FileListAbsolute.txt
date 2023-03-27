@@ -83,3 +83,7 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\BirdWorld.pdb
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\BirdWorld.genruntimeconfig.cache
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\ref\BirdWorld.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Newtonsoft.Json.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Newtonsoft.Json.Bson.dll

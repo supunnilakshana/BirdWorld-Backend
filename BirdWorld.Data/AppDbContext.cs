@@ -14,6 +14,9 @@ namespace BirdWorld.DataAcess
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
+        public DbSet<Bird> Birds { get; set; }
+         public DbSet<PostLike> PostLikes { get; set; }
+
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -59,20 +62,38 @@ namespace BirdWorld.DataAcess
               .HasKey(p => p.Id);
 
             builder.Entity<Post>()
-            .HasOne(p => p.User)
-            .WithMany()
-            .HasForeignKey(p => p.UserId);
+                .HasOne(p => p.User)
+                .WithMany()
+                .HasForeignKey(p => p.UserId);
 
             builder.Entity<Comment>()
-           .HasOne(p => p.User)
-           .WithMany()
-           .HasForeignKey(p => p.UserId);
-
+               .HasOne(p => p.User)
+               .WithMany()
+               .HasForeignKey(p => p.UserId);
             builder.Entity<Comment>()
-           .HasOne(c => c.Post)
-           .WithMany(p => p.Comments)
-           .HasForeignKey(c => c.PostID)
-           .OnDelete(DeleteBehavior.ClientSetNull); 
+               .HasOne(c => c.Post)
+               .WithMany(p => p.Comments)
+               .HasForeignKey(c => c.PostID)
+               .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+            builder.Entity<PostLike>()
+               .HasOne(p => p.User)
+               .WithMany()
+               .HasForeignKey(p => p.UserId);
+
+            builder.Entity<PostLike>()
+               .HasOne(l => l.Post)
+               .WithMany(p => p.Likes)
+               .HasForeignKey(c => c.PostID)
+               .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.Entity<Bird>()
+            .Property(b => b.Images)
+             .HasConversion(
+                v => string.Join(',', v),
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+        );
 
         }
 

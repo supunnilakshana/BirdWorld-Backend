@@ -98,6 +98,58 @@ namespace BirdWorld.DataAcess.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("BirdWorld.Models.Bird", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AvgLife")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CommonName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Deit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Edited")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Images")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ScienceName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Birds");
+                });
+
             modelBuilder.Entity("BirdWorld.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -169,6 +221,36 @@ namespace BirdWorld.DataAcess.Migrations
                     b.ToTable("Posts");
                 });
 
+            modelBuilder.Entity("BirdWorld.Models.PostLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PostID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PostLikes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -199,21 +281,21 @@ namespace BirdWorld.DataAcess.Migrations
                         new
                         {
                             Id = "0",
-                            ConcurrencyStamp = "cea68a19-58b0-4500-9ce5-a5b8189b33ab",
+                            ConcurrencyStamp = "d7efc4e0-39ec-4c0a-811f-0f535686d63a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "df0358f3-be1f-44d8-8bdd-b90f45683992",
+                            ConcurrencyStamp = "994e0f69-bbab-4ec0-8196-9856f45da1d6",
                             Name = "GUser",
                             NormalizedName = "GUSER"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "ad2426b4-0016-4ab2-8135-0e638d762dc8",
+                            ConcurrencyStamp = "706bc5cf-057e-4610-a6b3-ad2410788b85",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         });
@@ -354,6 +436,24 @@ namespace BirdWorld.DataAcess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BirdWorld.Models.PostLike", b =>
+                {
+                    b.HasOne("BirdWorld.Models.Post", "Post")
+                        .WithMany("Likes")
+                        .HasForeignKey("PostID")
+                        .IsRequired();
+
+                    b.HasOne("BirdWorld.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -408,6 +508,8 @@ namespace BirdWorld.DataAcess.Migrations
             modelBuilder.Entity("BirdWorld.Models.Post", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
         }

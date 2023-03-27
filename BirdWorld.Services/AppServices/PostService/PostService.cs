@@ -80,13 +80,55 @@ namespace BirdWorld.Services.AppServices.PostService
         {
             try
             {
-                var post = dbContext.Posts.FirstOrDefault(p => p.Id.Equals(id));
+                var post = dbContext.Posts.FirstOrDefault(p => p.Id==id);
                 return post;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.InnerException);
                 return null;
+            }
+        }
+
+        public List<PostLike>? GetPostLikes(int id)
+        {
+            try
+            {
+                var list = dbContext.PostLikes.Where(l=>l.Id==id).ToList();
+
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return null;
+            }
+        }
+
+        public bool LikePost(PostLike like)
+        {
+            try
+            {
+                var postLike = dbContext.PostLikes.FirstOrDefault(l => l.Id == like.Id);
+
+                if(postLike is not null)
+                {
+                    dbContext.PostLikes.Remove(postLike);
+                    
+                }
+                else
+                {
+                    dbContext.PostLikes.Add(like);  
+                }
+                dbContext.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                return false;
             }
         }
 

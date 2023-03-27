@@ -18,5 +18,6 @@ namespace BirdWorld.Models
 
         public AppUserDto? User { get; set; }
         public ICollection<CommentDto> Comments { get; set; } = new List<CommentDto>();
+        public ICollection<PostLikeDto> Likes { get; set; } = new List<PostLikeDto>();
     }
 }

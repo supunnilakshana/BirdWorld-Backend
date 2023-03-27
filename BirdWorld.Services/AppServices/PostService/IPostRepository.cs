@@ -15,6 +15,10 @@ namespace BirdWorld.Services.AppServices.PostService
         public bool CreatePost(Post post);
         public bool UpdatePost(Post post);
         public bool DeletePost(int id);
+        public bool LikePost(PostLike id);
+
+        public List<PostLike>? GetPostLikes(int id);
+
 
     }
 }

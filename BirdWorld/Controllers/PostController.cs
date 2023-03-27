@@ -221,5 +221,98 @@ namespace BirdWorld.Controllers
             }
         }
 
+
+        [HttpPost]
+        [Route("Like")]
+        public ActionResult LikePost(PostLikeRequest like)
+        {
+            try
+            {
+
+                PostLike postLike;
+
+                if (like.Id is not null)
+                {
+                    postLike = new PostLike
+                    {
+                        Id= like.Id.Value,
+                        Created = DateTime.Now,
+                        UserId = like.UserId,
+
+                    };
+                }
+                else
+                {
+
+                    postLike = new PostLike
+                    {
+                        Created = DateTime.Now,
+                        UserId = like.UserId,
+
+                    };
+                }
+
+               
+                var res = _postService.LikePost(postLike);
+                if (res)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return BadRequest(ex.Message);
+            }
+
+
+        }
+
+
+
+        [HttpGet]
+        [Route("GetLikes")]
+        public ActionResult<ICollection<PostDto>> GetLikes(int id)
+        {
+            try
+            {
+
+                var res = _postService.GetPostLikes(id);
+                if (res != null)
+                {
+                    var mappedList = _mapper.Map<ICollection<PostLikeDto>>(res);
+                    return Ok(mappedList);
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+
+
+
     }
+
+
+
+
+
+
 }

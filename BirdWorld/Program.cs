@@ -3,6 +3,7 @@ using BirdWorld.Config;
 using BirdWorld.DataAcess;
 using BirdWorld.Models;
 using BirdWorld.Services.AppServices.AppUserService;
+using BirdWorld.Services.AppServices.BirdService;
 using BirdWorld.Services.AppServices.CommentService;
 using BirdWorld.Services.AppServices.PostService;
 using BirdWorld.Services.Profiles;
@@ -63,6 +64,8 @@ internal class Program
             mc.AddProfile(new AppUserProfile());
             mc.AddProfile(new PostProfile());
             mc.AddProfile(new CommentProfile());
+            mc.AddProfile(new BirdProfile());
+            mc.AddProfile(new PostLikeProfile());
         });
 
         IMapper mapper = mappingConfig.CreateMapper();
@@ -70,6 +73,7 @@ internal class Program
         builder.Services.AddScoped<IPostRepository,PostService>();
         builder.Services.AddScoped<IAppUserRepository, AppUserService>();
         builder.Services.AddScoped<ICommentRepository, CommentService>();
+        builder.Services.AddScoped<IBirdRepository, BirdService>();
 
 
 

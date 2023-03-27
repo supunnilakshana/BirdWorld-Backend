@@ -12,6 +12,8 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -29,6 +31,8 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
