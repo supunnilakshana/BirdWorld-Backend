@@ -74,7 +74,7 @@ internal class Program
         builder.Services.AddScoped<IAppUserRepository, AppUserService>();
         builder.Services.AddScoped<ICommentRepository, CommentService>();
         builder.Services.AddScoped<IBirdRepository, BirdService>();
-
+  
 
 
         var app = builder.Build();

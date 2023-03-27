@@ -4,6 +4,7 @@ using BirdWorld.Helpers;
 using BirdWorld.Models;
 using BirdWorld.Models.RequestModels;
 using BirdWorld.Models.ResponseModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,7 @@ namespace BirdWorld.Controllers
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IMapper mapper;
 
-        public AppAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager,IMapper mapper)
+        public AppAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -35,28 +36,28 @@ namespace BirdWorld.Controllers
         public async Task<ActionResult<UserAuthResponse>> Signin(UserAuthRequest authRequest)
         {
 
-               if (authRequest == null)
+            if (authRequest == null)
             {
-                return BadRequest();    
+                return BadRequest();
             }
             else
             {
                 var user = await userManager.FindByEmailAsync(authRequest.Email);
-               if (user != null)
+                if (user != null)
                 {
                     var res = await signInManager.PasswordSignInAsync(user, authRequest.Password, false, false);
                     if (res.Succeeded) {
-                      await  signInManager.SignOutAsync();
+                        await signInManager.SignOutAsync();
                         var roles = await userManager.GetRolesAsync(user);
                         var role = roles.First();
                         Console.WriteLine(role);
-                         if (role is not null)
+                        if (role is not null)
                         {
                             String acesstoken = new JwtHelper().createToken(user, role);
-                            var mappedUser=  mapper.Map<AppUserDto>(user);
-                            mappedUser.Role= role;
+                            var mappedUser = mapper.Map<AppUserDto>(user);
+                            mappedUser.Role = role;
                             return Ok(
-                                new UserAuthResponse{
+                                new UserAuthResponse {
                                     user = mappedUser,
                                     token = acesstoken
                                 }
@@ -69,7 +70,7 @@ namespace BirdWorld.Controllers
 
 
 
-                      
+
                     }
                     else
                     {
@@ -83,8 +84,8 @@ namespace BirdWorld.Controllers
 
 
             }
-        
-        
+
+
         }
 
         [HttpPost]
@@ -111,32 +112,35 @@ namespace BirdWorld.Controllers
                         Email = newUserRequest.Email,
                         FirstName = newUserRequest.FirstName,
                         LastName = newUserRequest.LastName
-                        
+
                     };
 
-                        
-                   var res=  await userManager.CreateAsync(newuser,newUserRequest.Password);
-                   
-                   
+
+                    var res = await userManager.CreateAsync(newuser, newUserRequest.Password);
+
+
                     if (res.Succeeded)
                     {
                         var role = await roleManager.FindByNameAsync(newUserRequest.Role);
-                        var regiUser = await userManager.FindByEmailAsync(newuser.Email);  
-                        
-                        if (role !=null && regiUser!=null)
+                        var regiUser = await userManager.FindByEmailAsync(newuser.Email);
+
+
+
+                        if (role != null && regiUser != null)
                         {
-                            
-                          var identityResult=  await userManager.AddToRoleAsync(regiUser,role.Name); 
+
+                            var identityResult = await userManager.AddToRoleAsync(regiUser, role.Name);
                             if (identityResult.Succeeded)
                             {
+
                                 String acesstoken = new JwtHelper().createToken(regiUser, role.Name);
                                 var mappedUser = mapper.Map<AppUserDto>(newuser);
                                 mappedUser.Role = role.Name;
                                 return Ok(
                                     new {
-                                   user=mappedUser,
-                                   token=acesstoken
-                                }
+                                        user = mappedUser,
+                                        token = acesstoken
+                                    }
                                );
                             }
                             else
@@ -160,17 +164,150 @@ namespace BirdWorld.Controllers
                 catch (Exception e)
                 {
 
-                   return BadRequest(e.Message);
+                    return BadRequest(e.Message);
                 }
 
 
-            } 
+            }
+
+
+
+
+
+
+
 
         }
 
 
 
+
+
+        [Authorize]
+        [HttpPost]
+        [Route("authcheck")]
        
+        public async Task<ActionResult> AuthCheck()
+        {
+
+            /*if (newUserRequest == null)
+            {
+
+                return BadRequest();
+            }
+           
+            else
+            {
+                try
+                {
+                   
+
+
+                }
+                catch (Exception e)
+                {
+
+                    return BadRequest(e.Message);
+                }
+
+            }*/
+
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpPost]
+        [Route("changepassword")]
+        public async Task<ActionResult> ChangePassword(ChangePasswordRequest changePasswordRequest)
+        {
+
+            if (changePasswordRequest == null)
+            {
+                
+                
+
+                return BadRequest();
+            }
+
+            else
+            {
+                try
+                {
+                    var appuser =await  userManager.FindByIdAsync(changePasswordRequest.UserId);
+
+                    if (appuser is not null)
+                    {
+                      await   userManager.ChangePasswordAsync(appuser, changePasswordRequest.oldPassword, changePasswordRequest.newPassword);
+
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+
+
+
+                }
+                catch (Exception e)
+                {
+
+                    return BadRequest(e.Message);
+                }
+
+
+            }
+        }
+
+
+   
+        [HttpGet]
+        [Route("verifyuser")]
+
+        public async Task<ActionResult<bool>> VerifyUser(String email )
+        {
+
+            if (email == null)
+            {
+
+                return BadRequest();
+            }
+
+            else
+            {
+                try
+                {
+                    var appuser=await userManager.FindByEmailAsync(email);
+                    if (appuser !=null) {
+
+                        return Ok(true);
+
+                    }
+                    else
+                    {
+                          return Ok(false);
+                    }
+
+
+
+                }
+                catch (Exception e)
+                {
+
+                    return BadRequest(e.Message);
+                }
+
+
+            }
+        }
+
+
+
+
+
+
+
+
 
 
     }
