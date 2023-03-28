@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BirdWorld.Models.RequestModels
 {
-    internal class ResetPasswordRequest
+    public class ResetPasswordRequest
     {
+
+        
+
     }
 }

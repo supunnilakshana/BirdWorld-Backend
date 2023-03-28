@@ -82,10 +82,7 @@ namespace BirdWorld.Controllers
                     return BadRequest();
                 }
 
-
             }
-
-
         }
 
         [HttpPost]
@@ -234,6 +231,8 @@ namespace BirdWorld.Controllers
                 try
                 {
                     var appuser =await  userManager.FindByIdAsync(changePasswordRequest.UserId);
+
+                   // userManager.ResetPasswordAsync()
 
                     if (appuser is not null)
                     {
