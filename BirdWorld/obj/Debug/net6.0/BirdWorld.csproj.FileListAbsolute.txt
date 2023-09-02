@@ -87,3 +87,8 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\BirdWorld.pdb
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\BirdWorld.genruntimeconfig.cache
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\obj\Debug\net6.0\ref\BirdWorld.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.Auth.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.Core.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.FirebaseDynamicLinks.v1.dll

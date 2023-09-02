@@ -298,9 +298,68 @@ namespace BirdWorld.Controllers
 
 
             }
+
+
         }
 
+        [HttpGet]
+        [Route("reqpwrest")]
 
+        public async Task<ActionResult<bool>> ReqPWRest(String email)
+        {
+
+            var a = new FirebaseDynamicLinksService();
+            var b = await a.CreateDynamicLinkAsync();
+
+            return Ok(new
+            {
+                link = b,
+            });
+
+
+
+
+            /*if (email == null)
+            {
+
+                return BadRequest();
+            }
+
+            else
+            {
+                try
+                {
+                    var appuser = await userManager.FindByEmailAsync(email);
+                    if (appuser != null)
+                    {
+
+
+
+
+
+
+                        return Ok(true);
+
+                    }
+                    else
+                    {
+                        return Ok(false);
+                    }
+
+
+
+                }
+                catch (Exception e)
+                {
+
+                    return BadRequest(e.Message);
+                }
+
+
+            }*/
+
+
+        }
 
 
 

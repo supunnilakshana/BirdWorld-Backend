@@ -18,14 +18,17 @@ namespace BirdWorld.DataAcess
          public DbSet<PostLike> PostLikes { get; set; }
 
 
+        public AppDbContext()
+        {
+        }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
 
-        public AppDbContext()
-        {
-        }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "c5c15sCY07CNJqanrUV7G7SY1iMS2R9AseFRIGRqm70x7VeBoOi2yqfKb24KNdwSaAs12rypKBAEDYHvvkWhxQ==",
+  "dgSpecHash": "acxJt0e4jkuWgQSXI7BLXbDNymQMUcj87RGUde2zuSnWBRd3e5K4gOc5jxvZNG2LaT8ut6lJh6p1GU0AVLbuVA==",
   "success": true,
   "projectFilePath": "C:\\Supun\\Professional\\Development\\.net core\\BirdWorld\\BirdWorld.Config\\BirdWorld.Config.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\supun\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
+    "C:\\Users\\supun\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
+    "C:\\Users\\supun\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
+    "C:\\Users\\supun\\.nuget\\packages\\google.apis.firebasedynamiclinks.v1\\1.61.0.3105\\google.apis.firebasedynamiclinks.v1.1.61.0.3105.nupkg.sha512",
+    "C:\\Users\\supun\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

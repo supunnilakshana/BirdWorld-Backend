@@ -281,21 +281,21 @@ namespace BirdWorld.DataAcess.Migrations
                         new
                         {
                             Id = "0",
-                            ConcurrencyStamp = "d7efc4e0-39ec-4c0a-811f-0f535686d63a",
+                            ConcurrencyStamp = "a9e61157-2ca9-4a1f-ac49-58fc8a5b12e9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "994e0f69-bbab-4ec0-8196-9856f45da1d6",
+                            ConcurrencyStamp = "ad8d7ce1-601e-46b1-8eb5-ede25f2a16a8",
                             Name = "GUser",
                             NormalizedName = "GUSER"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "706bc5cf-057e-4610-a6b3-ad2410788b85",
+                            ConcurrencyStamp = "177f3d09-e9af-45bf-93c5-171d7a1598ab",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         });
