@@ -232,7 +232,7 @@ namespace BirdWorld.Controllers
                 {
                     var appuser =await  userManager.FindByIdAsync(changePasswordRequest.UserId);
 
-                   // userManager.ResetPasswordAsync()
+                   
 
                     if (appuser is not null)
                     {
@@ -263,10 +263,14 @@ namespace BirdWorld.Controllers
         [HttpGet]
         [Route("verifyuser")]
 
-        public async Task<ActionResult<bool>> VerifyUser(String email )
-        {
+        public async Task<ActionResult<bool>> VerifyUser(String email) {
 
-            if (email == null)
+            EmailHelper emailHelper = new EmailHelper();
+            await emailHelper.SendPwRestEmail("supunnikz@gmail.com", "ssdsdsd");
+
+            return Ok(true);
+
+           /* if (email == null)
             {
 
                 return BadRequest();
@@ -297,7 +301,7 @@ namespace BirdWorld.Controllers
                 }
 
 
-            }
+            }*/
 
 
         }
@@ -308,18 +312,9 @@ namespace BirdWorld.Controllers
         public async Task<ActionResult<bool>> ReqPWRest(String email)
         {
 
-            var a = new FirebaseDynamicLinksService();
-            var b = await a.CreateDynamicLinkAsync();
-
-            return Ok(new
-            {
-                link = b,
-            });
 
 
-
-
-            /*if (email == null)
+            if (email == null)
             {
 
                 return BadRequest();
@@ -332,13 +327,18 @@ namespace BirdWorld.Controllers
                     var appuser = await userManager.FindByEmailAsync(email);
                     if (appuser != null)
                     {
+                        String resetToken = await userManager.GeneratePasswordResetTokenAsync(appuser);
 
-
-
-
-
-
-                        return Ok(true);
+                        FirebaseDynamicLinksService dynamicLinksService = new FirebaseDynamicLinksService();
+                        String? dlink=await dynamicLinksService.CreateDynamicLinkAsync(resetToken);
+                        if (dlink is not null)
+                        {
+                            return Ok(true);
+                        }
+                        else
+                        {
+                            return BadRequest();
+                        }
 
                     }
                     else
@@ -356,17 +356,66 @@ namespace BirdWorld.Controllers
                 }
 
 
-            }*/
+            }
 
 
         }
 
+        [HttpGet]
+        [Route("resetpassword")]
+
+        public async Task<ActionResult<bool>> RestPassword(ResetPasswordRequest resetPasswordRequest)
+        {
 
 
 
+            if (resetPasswordRequest == null)
+            {
+
+                return BadRequest();
+            }
+
+            else
+            {
+                try
+                {
+                    var appuser = await userManager.FindByEmailAsync(resetPasswordRequest.email);
+                    if (appuser != null)
+                    {
+                        var res = await userManager.ResetPasswordAsync(
+                            appuser,resetPasswordRequest.token,
+                            resetPasswordRequest.newPassword
+                            );
+
+                  
+                        if (res.Succeeded)
+                        {
+                            return Ok(true);
+                        }
+                        else
+                        {
+                            return BadRequest();
+                        }
+
+                    }
+                    else
+                    {
+                        return Ok(false);
+                    }
 
 
 
+                }
+                catch (Exception e)
+                {
 
+                    return BadRequest(e.Message);
+                }
+
+
+            }
+
+
+        }
     }
 }

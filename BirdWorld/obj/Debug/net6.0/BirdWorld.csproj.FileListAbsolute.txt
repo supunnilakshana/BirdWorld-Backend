@@ -92,3 +92,5 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.Auth.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.Core.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\Google.Apis.FirebaseDynamicLinks.v1.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\SendGrid.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Debug\net6.0\StarkbankEcdsa.dll

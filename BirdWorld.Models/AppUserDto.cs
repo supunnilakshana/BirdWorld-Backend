@@ -9,11 +9,12 @@ namespace BirdWorld.Models
     public class AppUserDto
     {
         public String Id { get; set; }
-
         public String FirstName { get; set; }
         public String LastName { get; set; }
         public string Email { get; set; }
-        public string? Role { get; set; }
+        public String? ProfileUrl { get; set; }
+        public string? MobileNo { get; set; }
+        public string Role { get; set; }
 
 
     }

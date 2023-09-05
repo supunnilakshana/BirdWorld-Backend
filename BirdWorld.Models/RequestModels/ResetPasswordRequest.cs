@@ -8,8 +8,10 @@ namespace BirdWorld.Models.RequestModels
 {
     public class ResetPasswordRequest
     {
+        public string email { get; set; }
+        public string token { get; set; }
+        public string newPassword { get; set; }
 
-        
 
     }
 }

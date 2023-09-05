@@ -16,14 +16,14 @@ namespace BirdWorld.Helpers
         }
 
 
-        public async Task<string?> CreateDynamicLinkAsync()
+        public async Task<string?> CreateDynamicLinkAsync(String token)
         {
             try
             {
                
                 string apiKey = "AIzaSyAz7a4beRSMdXj9xwFYuBZw3-9yIPoISE8";
                 string domainUriPrefix = "https://birdworld.page.link";
-                string targetLink = "https://www.example.com/?token=supunnnnnnnnnnnnnnnnnnnnnnnnnnn";
+                string targetLink = $"https://www.example.com/?token={token}";
                 string androidPackageName = "com.example.birdworld";
                
 
