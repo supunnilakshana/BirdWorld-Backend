@@ -21,13 +21,15 @@ namespace BirdWorld.Controllers
         private readonly SignInManager<AppUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IMapper mapper;
+        private readonly IConfiguration config;
 
-        public AppAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
+        public AppAuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, IMapper mapper, IConfiguration config)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
             this.mapper = mapper;
+            this.config = config;
         }
 
 
@@ -108,7 +110,8 @@ namespace BirdWorld.Controllers
                         UserName = newUserRequest.Email,
                         Email = newUserRequest.Email,
                         FirstName = newUserRequest.FirstName,
-                        LastName = newUserRequest.LastName
+                        LastName = newUserRequest.LastName,
+                        
 
                     };
 
@@ -186,6 +189,8 @@ namespace BirdWorld.Controllers
        
         public async Task<ActionResult> AuthCheck()
         {
+
+           
 
             /*if (newUserRequest == null)
             {
@@ -265,9 +270,9 @@ namespace BirdWorld.Controllers
 
         public async Task<ActionResult<bool>> VerifyUser(String email) {
 
-            EmailHelper emailHelper = new EmailHelper();
+           EmailHelper emailHelper = new EmailHelper(config);
             await emailHelper.SendPwRestEmail("supunnikz@gmail.com", "ssdsdsd");
-
+     
             return Ok(true);
 
            /* if (email == null)

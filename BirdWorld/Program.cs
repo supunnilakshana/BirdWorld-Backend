@@ -16,8 +16,11 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        DotNetEnv.Env.Load();
+
         var builder = WebApplication.CreateBuilder(args);
 
+        
         // Add services to the container.
 
         builder.Services.AddControllers();
@@ -103,5 +106,7 @@ internal class Program
         }
         );
         app.Run();
+
+
     }
 }

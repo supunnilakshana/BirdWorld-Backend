@@ -5,13 +5,16 @@ namespace BirdWorld.Helpers
 {
     public class EmailHelper
     {
-
-        public EmailHelper() { }
+        private readonly IConfiguration config;
+        public EmailHelper( IConfiguration configuration) {
+            config = configuration;
+        }
         public async Task SendPwRestEmail(string email,String tokenlink){
 
             try
             {
-                string apiKey = Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
+                string apiKey = config["EMAIL_SECRETE"];
+                Console.WriteLine(apiKey);
                 var client = new SendGridClient(apiKey);
                 var from = new EmailAddress("birdworldsupu@gmail.com", "BW");
                 var subject = "Password Reset url";
