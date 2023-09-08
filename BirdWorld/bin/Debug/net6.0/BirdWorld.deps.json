@@ -14,6 +14,7 @@
           "BirdWorld.Models": "1.0.0",
           "BirdWorld.Services": "1.0.0",
           "DotNetEnv": "2.5.0",
+          "Google.Apis.Auth": "1.62.0",
           "Google.Apis.FirebaseDynamicLinks.v1": "1.61.0.3105",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.13",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.13",
@@ -67,48 +68,48 @@
           }
         }
       },
-      "Google.Apis/1.61.0": {
+      "Google.Apis/1.62.0": {
         "dependencies": {
-          "Google.Apis.Core": "1.61.0"
+          "Google.Apis.Core": "1.62.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.62.0.0",
+            "fileVersion": "1.62.0.0"
           }
         }
       },
-      "Google.Apis.Auth/1.61.0": {
+      "Google.Apis.Auth/1.62.0": {
         "dependencies": {
-          "Google.Apis": "1.61.0",
-          "Google.Apis.Core": "1.61.0"
+          "Google.Apis": "1.62.0",
+          "Google.Apis.Core": "1.62.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.62.0.0",
+            "fileVersion": "1.62.0.0"
           },
           "lib/netstandard2.0/Google.Apis.Auth.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.62.0.0",
+            "fileVersion": "1.62.0.0"
           }
         }
       },
-      "Google.Apis.Core/1.61.0": {
+      "Google.Apis.Core/1.62.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Core.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.62.0.0",
+            "fileVersion": "1.62.0.0"
           }
         }
       },
       "Google.Apis.FirebaseDynamicLinks.v1/1.61.0.3105": {
         "dependencies": {
-          "Google.Apis": "1.61.0",
-          "Google.Apis.Auth": "1.61.0"
+          "Google.Apis": "1.62.0",
+          "Google.Apis.Auth": "1.62.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.FirebaseDynamicLinks.v1.dll": {
@@ -1473,26 +1474,26 @@
       "path": "dotnetenv/2.5.0",
       "hashPath": "dotnetenv.2.5.0.nupkg.sha512"
     },
-    "Google.Apis/1.61.0": {
+    "Google.Apis/1.62.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KUVqG6MRC7E8anPOLefqb+wnDeIS6IJ1B09GaXg07vAHGVnGxJ8odAtpnCQCN3aUzao3gFnSSEKawDvFrJpYZQ==",
-      "path": "google.apis/1.61.0",
-      "hashPath": "google.apis.1.61.0.nupkg.sha512"
+      "sha512": "sha512-7K6DuMmRVz+7QDEJgAEYicKGRhjkNaKhkaf+qoqdLEzvVmEtIUW49+2gON1EdbYjLEjexVb5TGgtzn+/WTNFwg==",
+      "path": "google.apis/1.62.0",
+      "hashPath": "google.apis.1.62.0.nupkg.sha512"
     },
-    "Google.Apis.Auth/1.61.0": {
+    "Google.Apis.Auth/1.62.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1tXnTa9WaimJdlrIyHnhjjgFX6fQ1r4ClWqlK9ZYF5YPyswG1GbWhhlPyQg615BnHSulmRINlXIi8AbGJsc1yQ==",
-      "path": "google.apis.auth/1.61.0",
-      "hashPath": "google.apis.auth.1.61.0.nupkg.sha512"
+      "sha512": "sha512-gGhgv2xmFrDAmXj5Ei5LW1pLHxqAsj8crwOd0vhrdXJm3mIRm3vd+MfZ9ApbqvsaAMyCIlZBRhyT5mwPJnWNYw==",
+      "path": "google.apis.auth/1.62.0",
+      "hashPath": "google.apis.auth.1.62.0.nupkg.sha512"
     },
-    "Google.Apis.Core/1.61.0": {
+    "Google.Apis.Core/1.62.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/COXAFLc1SrLDZl7Ahhi0ZyNHM6ADvdd73UjIPXr1MRubHTrBgvdfwoTrCL0C8C6w0ur/RIR1RHUR5orSJozGg==",
-      "path": "google.apis.core/1.61.0",
-      "hashPath": "google.apis.core.1.61.0.nupkg.sha512"
+      "sha512": "sha512-UV2vs58DyrQ/roZ59Mmny/5aE/2w5ww9Svyn6+ThXeq3Jw2RdOP1C57ez1V8+1KwY0ivPPIIp6e5jO6K5n5F+A==",
+      "path": "google.apis.core/1.62.0",
+      "hashPath": "google.apis.core.1.62.0.nupkg.sha512"
     },
     "Google.Apis.FirebaseDynamicLinks.v1/1.61.0.3105": {
       "type": "package",

@@ -4,6 +4,7 @@ using BirdWorld.Helpers;
 using BirdWorld.Models;
 using BirdWorld.Models.RequestModels;
 using BirdWorld.Models.ResponseModels;
+using Google.Apis.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -67,7 +68,7 @@ namespace BirdWorld.Controllers
                         }
                         else
                         {
-                            return BadRequest("registaion failed");
+                            return BadRequest("signin failed");
                         }
 
 
@@ -170,17 +171,139 @@ namespace BirdWorld.Controllers
 
             }
 
+        }
+        //CLIENT_ID_GOOGLE
+
+        [HttpPost]
+        [Route("googleauth")]
+        public async Task<ActionResult<UserAuthResponse>> GoogleAuth(GAuthRequest authRequest)
+        {
+
+            if (authRequest == null)
+            {
+
+                return BadRequest();
+            }
+            if (authRequest.Role.Equals(((int)AppUserRoles.Admin).ToString()))
+            {
+                return BadRequest();
+            }
+           
+            try
+            {
+
+               GoogleJsonWebSignature.ValidationSettings settings = new GoogleJsonWebSignature.ValidationSettings();
+
+
+                settings.Audience = new List<string>() { "708313847097-qqhkk449k8ut39q0uf0290rhvgm4cthh.apps.googleusercontent.com" };
+
+                GoogleJsonWebSignature.Payload payload = GoogleJsonWebSignature.ValidateAsync(authRequest.Token, settings).Result;
+
+                    if (payload == null)
+                    {
+                       return BadRequest();
+                    }
+                    else
+                    {
+                        var user = await userManager.FindByEmailAsync(payload.Email);
+                        if (user != null)
+                        {
+                            var roles = await userManager.GetRolesAsync(user);
+                            var role = roles.First();
+                            Console.WriteLine(role);
+                            if (role is not null)
+                            {
+                                String acesstoken = new JwtHelper().createToken(user, role);
+                                var mappedUser = mapper.Map<AppUserDto>(user);
+                                mappedUser.Role = role;
+                                return Ok(
+                                    new UserAuthResponse
+                                    {
+                                        user = mappedUser,
+                                        token = acesstoken
+                                    }
+                               );
+                            }else{
+                                return BadRequest("Auth failed");
+                            }
+                        }else{
+
+                            AppUser newuser = new AppUser
+                            {
+                                UserName = payload.Email,
+                                Email = payload.Email,
+                                FirstName = payload.Name,
+                                LastName = "",
+
+
+                            };
+
+                            RadomStringGenerator radomStringGenerator = new RadomStringGenerator();
+                            var res = await userManager.CreateAsync(newuser, radomStringGenerator.GenerateRandomString(10));
+
+
+                            if (res.Succeeded)
+                            {
+                                var role = await roleManager.FindByNameAsync(authRequest.Role);
+                                var regiUser = await userManager.FindByEmailAsync(newuser.Email);
+
+
+
+                                if (role != null && regiUser != null)
+                                {
+
+                                    var identityResult = await userManager.AddToRoleAsync(regiUser, role.Name);
+                                    if (identityResult.Succeeded)
+                                    {
+
+                                        String acesstoken = new JwtHelper().createToken(regiUser, role.Name);
+                                        var mappedUser = mapper.Map<AppUserDto>(newuser);
+                                        mappedUser.Role = role.Name;
+                                        return Ok(
+                                            new
+                                            {
+                                                user = mappedUser,
+                                                token = acesstoken
+                                            }
+                                       );
+                                    }
+                                    else
+                                    {
+                                        return BadRequest("registaion failed");
+                                    }
+
+                                }
+                                else
+                                {
+                                    return BadRequest("registaion failed");
+                                }
+
+                            }
+                            else
+                            {
+                                return BadRequest("registaion failed");
+                            }
+
+                        }
 
 
 
 
 
 
+                    }
+
+                }
+                catch (Exception e)
+                {
+
+                    return BadRequest(e.Message);
+                }
+
+
+            
 
         }
-
-
-
 
 
         [Authorize]
@@ -191,28 +314,8 @@ namespace BirdWorld.Controllers
         {
 
            
-
-            /*if (newUserRequest == null)
-            {
-
-                return BadRequest();
-            }
-           
-            else
-            {
-                try
-                {
-                   
-
-
-                }
-                catch (Exception e)
-                {
-
-                    return BadRequest(e.Message);
-                }
-
-            }*/
+        
+        
 
             return Ok();
         }
@@ -270,12 +373,10 @@ namespace BirdWorld.Controllers
 
         public async Task<ActionResult<bool>> VerifyUser(String email) {
 
-           EmailHelper emailHelper = new EmailHelper(config);
-            await emailHelper.SendPwRestEmail("supunnikz@gmail.com", "ssdsdsd");
-     
-            return Ok(true);
 
-           /* if (email == null)
+
+
+            if (email == null)
             {
 
                 return BadRequest();
@@ -285,15 +386,16 @@ namespace BirdWorld.Controllers
             {
                 try
                 {
-                    var appuser=await userManager.FindByEmailAsync(email);
-                    if (appuser !=null) {
+                    var appuser = await userManager.FindByEmailAsync(email);
+                    if (appuser != null)
+                    {
 
                         return Ok(true);
 
                     }
                     else
                     {
-                          return Ok(false);
+                        return Ok(false);
                     }
 
 
@@ -306,7 +408,7 @@ namespace BirdWorld.Controllers
                 }
 
 
-            }*/
+            }
 
 
         }
@@ -338,6 +440,9 @@ namespace BirdWorld.Controllers
                         String? dlink=await dynamicLinksService.CreateDynamicLinkAsync(resetToken);
                         if (dlink is not null)
                         {
+                            EmailHelper emailHelper = new EmailHelper(config);
+                            await emailHelper.SendPwRestEmail(email, dlink);
+
                             return Ok(true);
                         }
                         else
