@@ -40,7 +40,8 @@ internal class Program
                 options.Password.RequireUppercase = false;
 
             })
-            .AddEntityFrameworkStores<AppDbContext>();
+            .AddEntityFrameworkStores<AppDbContext>().
+            AddDefaultTokenProviders();
 
 
         builder.Services.AddAuthentication(auth =>

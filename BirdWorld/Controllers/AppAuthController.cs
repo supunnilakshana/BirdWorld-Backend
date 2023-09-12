@@ -194,10 +194,12 @@ namespace BirdWorld.Controllers
 
                GoogleJsonWebSignature.ValidationSettings settings = new GoogleJsonWebSignature.ValidationSettings();
 
-
-                settings.Audience = new List<string>() { "708313847097-qqhkk449k8ut39q0uf0290rhvgm4cthh.apps.googleusercontent.com" };
+               
+               
+                settings.Audience = new List<string>() { "801488927192-811loukusmn2epu4oqerro58u71qp41t.apps.googleusercontent.com" };
 
                 GoogleJsonWebSignature.Payload payload = GoogleJsonWebSignature.ValidateAsync(authRequest.Token, settings).Result;
+                Console.WriteLine(payload);
 
                     if (payload == null)
                     {
@@ -286,17 +288,13 @@ namespace BirdWorld.Controllers
 
                         }
 
-
-
-
-
-
                     }
 
                 }
                 catch (Exception e)
                 {
-
+                Console.WriteLine(e);
+                
                     return BadRequest(e.Message);
                 }
 
@@ -432,12 +430,16 @@ namespace BirdWorld.Controllers
                 try
                 {
                     var appuser = await userManager.FindByEmailAsync(email);
+                    Console.WriteLine(appuser);
                     if (appuser != null)
                     {
                         String resetToken = await userManager.GeneratePasswordResetTokenAsync(appuser);
 
                         FirebaseDynamicLinksService dynamicLinksService = new FirebaseDynamicLinksService();
-                        String? dlink=await dynamicLinksService.CreateDynamicLinkAsync(resetToken);
+
+                        Console.WriteLine(resetToken);
+
+                        String? dlink=await dynamicLinksService.CreateDynamicLinkAsync(resetToken,email);
                         if (dlink is not null)
                         {
                             EmailHelper emailHelper = new EmailHelper(config);
@@ -462,6 +464,7 @@ namespace BirdWorld.Controllers
                 catch (Exception e)
                 {
 
+                    Console.WriteLine(e);
                     return BadRequest(e.Message);
                 }
 

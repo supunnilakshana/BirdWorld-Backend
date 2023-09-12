@@ -16,14 +16,15 @@ namespace BirdWorld.Helpers
         }
 
 
-        public async Task<string?> CreateDynamicLinkAsync(String token)
+        public async Task<string?> CreateDynamicLinkAsync(String token,String email)
         {
             try
             {
                
                 string apiKey = "AIzaSyAz7a4beRSMdXj9xwFYuBZw3-9yIPoISE8";
                 string domainUriPrefix = "https://birdworld.page.link";
-                string targetLink = $"https://www.example.com/?token={token}";
+                string targetLink = $"https://www.example.com/?token={token}&email={email}";
+                  /*  $"&email={email}";*/
                 string androidPackageName = "com.example.birdworld";
                
 
@@ -54,9 +55,9 @@ namespace BirdWorld.Helpers
 
                 // Send a POST request to create the dynamic link
                 var response = await _httpClient.PostAsync(apiUrl, new StringContent(json, Encoding.UTF8, "application/json"));
+                Console.WriteLine(response.StatusCode);
 
-            
-
+                Console.WriteLine(response.Content);
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = await response.Content.ReadAsStringAsync();
