@@ -6,6 +6,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAS3LQRZh00mNVM6i4BM/VQAAAAACAAAAAAAQZgAAAAEAACAAAACo0fPPcc/UXM4Npno9n/ebOfVELgdrfdIa01tD/4+FegAAAAAOgAAAAAIAACAAAAB4rCF5w7Hi4hXbnp7oTvSymUS3DzHst51tI4/jbZChICAAAADize64BNUJ6hBsAvzsoD2PrfhHdfc3p+f1U7FNwE4XJEAAAAC/XfP8HSwrSyvJwH6wbK5jxtceojoMX4KgEGNobq6/zfxcjRTAyPWzckj7WgKQez7XYk5Qr6tvuqFh0JfMlh0n</EncryptedPassword>
+    <_PublishTargetUrl>ftp://win5109.site4now.net:21/site1</_PublishTargetUrl>
+    <History>False|2023-09-13T07:02:08.4236243Z;False|2023-09-13T12:30:22.4409395+05:30;</History>
+    <LastFailureDetails />
   </PropertyGroup>
 </Project>

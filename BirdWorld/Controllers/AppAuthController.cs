@@ -438,6 +438,7 @@ namespace BirdWorld.Controllers
                         FirebaseDynamicLinksService dynamicLinksService = new FirebaseDynamicLinksService();
 
                         Console.WriteLine(resetToken);
+                        
 
                         String? dlink=await dynamicLinksService.CreateDynamicLinkAsync(resetToken,email);
                         if (dlink is not null)
@@ -445,7 +446,7 @@ namespace BirdWorld.Controllers
                             EmailHelper emailHelper = new EmailHelper(config);
                             await emailHelper.SendPwRestEmail(email, dlink);
 
-                            return Ok(true);
+                            return Ok(resetToken);
                         }
                         else
                         {
@@ -474,7 +475,7 @@ namespace BirdWorld.Controllers
 
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("resetpassword")]
 
         public async Task<ActionResult<bool>> RestPassword(ResetPasswordRequest resetPasswordRequest)
@@ -499,7 +500,7 @@ namespace BirdWorld.Controllers
                             appuser,resetPasswordRequest.token,
                             resetPasswordRequest.newPassword
                             );
-
+                        Console.WriteLine(res);
                   
                         if (res.Succeeded)
                         {
@@ -507,7 +508,7 @@ namespace BirdWorld.Controllers
                         }
                         else
                         {
-                            return BadRequest();
+                            return BadRequest("Invalid token");
                         }
 
                     }

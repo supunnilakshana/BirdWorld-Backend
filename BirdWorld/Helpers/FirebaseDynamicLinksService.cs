@@ -20,10 +20,10 @@ namespace BirdWorld.Helpers
         {
             try
             {
-               
+                string encodedTokenData = System.Web.HttpUtility.UrlEncode(token);
                 string apiKey = "AIzaSyAz7a4beRSMdXj9xwFYuBZw3-9yIPoISE8";
                 string domainUriPrefix = "https://birdworld.page.link";
-                string targetLink = $"https://www.example.com/?token={token}&email={email}";
+                string targetLink = $"https://www.example.com/?token={encodedTokenData}&email={email}";
                   /*  $"&email={email}";*/
                 string androidPackageName = "com.example.birdworld";
                

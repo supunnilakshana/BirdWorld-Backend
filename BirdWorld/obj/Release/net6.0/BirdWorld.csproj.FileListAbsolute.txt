@@ -87,3 +87,12 @@ C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Newtonsoft.Json.dll
 C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\DotNetEnv.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Google.Apis.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Google.Apis.Auth.PlatformServices.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Google.Apis.Auth.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Google.Apis.Core.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Google.Apis.FirebaseDynamicLinks.v1.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\SendGrid.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\Sprache.dll
+C:\Supun\Professional\Development\.net core\BirdWorld\BirdWorld\bin\Release\net6.0\StarkbankEcdsa.dll
